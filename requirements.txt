@@ -1,1 +1,9 @@
-Flask==3.0.3
+requests
+python-telegram-bot
+pytz
+opencage
+Flask
+pandas
+openpyxl
+pillow
+playwright
