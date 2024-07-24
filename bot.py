@@ -100,6 +100,13 @@ def page_not_found(e):
 def cancel():
     return "Operation cancelled."
 
+# Define a Flask route to handle webhook requests from Telegram
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    update = Update.de_json(request.get_json(), application.bot)
+    application.process_update(update)
+    return "ok", 200
+
 # Command handler for /start
 async def start_command_handler(update: Update, context: CallbackContext):
     start_message = (
